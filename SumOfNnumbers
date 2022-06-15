@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class SumOfnNumbers {
+
+	public static void main(String[] args) {
+		int n,i=1,S=0;
+		
+		Scanner s = new Scanner(System.in);
+		n = s.nextInt();
+		
+		while(i<=n) {
+			
+			S+= i;
+		i++;		
+		}
+		System.out.println("Sum = " + S);
+
+	}
+}
