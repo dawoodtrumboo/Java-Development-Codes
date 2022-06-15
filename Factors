@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class Factors {
+    
+    public static void main(String[] args) {
+    	   int i,f=0,n;
+           Scanner s = new Scanner(System.in);
+           i = s.nextInt();
+           n=i/2;
+           boolean isFactor = true;
+           while (n>0 || f!=i ) {
+           	
+           	f = i/n;
+           	if (i%n==0) {
+           		System.out.print(f + " ");
+           	}
+           	else {
+           		
+           		isFactor=false;
+           	}
+           	n--;
+               
+           }
+        
+        
+    }
+}
