@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class MultiplicationTable {
+	public static void main(String[] args) {
+
+		int n,i=1,N=1;
+
+		Scanner s = new Scanner(System.in);
+		n = s.nextInt();
+
+		while(N<=10){
+			n *=N;
+			System.out.println(n);
+			N++;
+		}
+
+	}
+}
