@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class CheckPrime {
+	public static void main(String[]args) {
+		
+		int n,d=2,rem;
+		boolean isPrime = true;
+		
+		Scanner s = new Scanner(System.in);
+		n = s.nextInt();
+		
+		while(d<n){
+			if(n%d==0) {
+				isPrime = false;
+			}
+			d++;
+}
+		if(isPrime == true) {
+			System.out.println(n + " is Prime");
+			}
+		else {
+			System.out.println(n + " is not Prime");
+		}
+		}
+		
+}
