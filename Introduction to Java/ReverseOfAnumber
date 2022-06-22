@@ -1,0 +1,14 @@
+import java.util.*;
+public class ReverseOfAnumber {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int rev=0;
+		for(;n>0;n/=10) {
+			rev=(rev*10)+ n%10;
+		}
+		System.out.println(rev);
+	}
+
+}
