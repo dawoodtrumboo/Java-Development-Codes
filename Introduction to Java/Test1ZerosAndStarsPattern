@@ -1,0 +1,33 @@
+import java.util.*;
+public class Test1ZerosAndStarsPattern {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		for(int i = 1; i<=n; i++) {
+			int j = 1;
+			for(; j<=n+1; j++) {
+				if(j==i) {
+					System.out.print("*");
+				}
+				else if(j==n+1){
+					System.out.print("*");
+				}
+				else {
+					System.out.print(0);
+				}
+			}
+			for(; j<= 2*n+1;j++) {
+				if(j==2*n+2-i) {
+					System.out.print("*");
+				}
+				else {
+					System.out.print(0);
+				}
+			}
+			System.out.println();
+		}
+
+	}
+
+}
