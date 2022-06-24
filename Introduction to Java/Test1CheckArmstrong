@@ -1,0 +1,31 @@
+import java.util.*;
+public class Test1CheckArmstrong {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int num = s.nextInt();
+		int n=0,rem=0,inputNum;
+		double finalNum = 0.0, pv = 0.0;
+		
+		for(inputNum = num; inputNum!=0; n++) {
+			inputNum/=10;
+		}
+		
+		for(inputNum = num; inputNum!=0; inputNum/=10) {
+			rem = inputNum % 10;
+			finalNum+= Math.pow(rem, n);
+		}
+		
+		if((int)finalNum == num) {
+			System.out.println(true);			
+		}
+		else {
+			System.out.println(false);
+		}
+		
+		
+		
+
+	}
+
+}
