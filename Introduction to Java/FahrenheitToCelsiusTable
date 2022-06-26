@@ -1,0 +1,21 @@
+import java.util.*;
+public class FahrenheitToCelsiusTable {
+	   public static void fToC(int S,int E, int W){
+		   int C=0;
+		   for(;S<=E; S+=W) {
+	       C = ((S-32)*5)/9;
+	       System.out.println(S + " " + C);
+	       }
+	        return ;
+	    }
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+        int S = s.nextInt();
+        int E = s.nextInt();
+        int W = s.nextInt();
+        
+       fToC(S,E,W);
+
+	}
+
+}
