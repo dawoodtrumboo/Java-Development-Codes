@@ -1,0 +1,41 @@
+public class FibonacciNumber {
+	
+	public static boolean checkMember(int n){
+		int a=0,b=1,c=0,N=0;boolean isTrue=true;
+
+		for(int i=2;i<=10000;i++) {
+			c= a+b;
+			a=b;
+			b=c;
+			N=c;
+            
+            if(n==0){
+                 isTrue = true;
+				break;
+            }
+			if(N==n) {
+                isTrue = true;
+				break;
+			}
+			else if(N!=n && N>n) {
+                isTrue = false;
+				break;
+			}
+			else
+				continue;
+
+			
+		}
+        return isTrue;	
+			
+		/* Your class should be named Solution
+		* Don't write main().
+	 	* Don't read input, it is passed as function argument.
+	 	* Return output and don't print it.
+	 	* Taking input and printing output is handled automatically.
+		*/
+
+	}
+	
+
+}
