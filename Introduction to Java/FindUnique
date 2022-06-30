@@ -1,0 +1,40 @@
+import java.util.*;
+public class FindUnique {
+	public static int[] inputArray() {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int arr[] = new int [n];
+
+		for(int i = 0; i<n; i++) {
+			System.out.println("Enter " + i + "ith index");
+			arr[i] = s.nextInt();
+		}
+		return arr;
+	}
+	public static int findUnique(int[] arr){
+	     int number=0;
+	        int i ;
+	        for(i =0; i<arr.length-1;i++){
+	            int j;
+	            for(j =0; j < arr.length-1; j++ ){
+	                if(i==j)
+	                    continue;
+	                else if(arr[i]==arr[j])
+	                    break;
+	            }
+	            if(arr[i]!=arr[j])
+	                 break;
+
+	        }
+	        number = arr[i];
+	        return number;
+	}
+	public static void main(String[] args) {
+
+		int arr[] = inputArray();
+		int number = findUnique(arr);
+		System.out.println(number);
+
+	}
+
+}
