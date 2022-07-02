@@ -1,0 +1,61 @@
+import java.util.*;
+public class Sort0and1 {
+
+	//Input Function
+	public static int[] inputArray() {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int arr[] = new int [n];
+
+		for(int i = 0; i<n; i++) {
+			System.out.println("Enter " + i + "ith index");
+			arr[i] = s.nextInt();
+		}
+		return arr;
+	}
+
+	// Sort Function
+	public static void sortArray(int arr[]) {
+		int temp=0;
+		int start = 0;
+		int end = arr.length-1;
+
+		while(start < end) {
+			while(arr[start]<1) {
+				start++;
+			}
+			while(arr[end]>0) {
+				end--;
+			}
+			if(arr[start]>arr[end]&& start<end) {
+				temp = arr[start];
+				arr[start] = arr[end];
+				arr[end] = temp;
+			}
+		}
+		
+
+	}
+
+
+	// Print Array Function
+
+	public static void printArray(int arr[]) {
+		for(int i = 0; i<arr.length;i++) {
+			System.out.print(arr[i]+",");
+		}
+
+	}
+
+	
+	// Main Function
+	public static void main(String[] args) {
+		int arr[] = inputArray();
+		sortArray(arr);
+		printArray(arr);
+		
+
+
+	}
+
+}
