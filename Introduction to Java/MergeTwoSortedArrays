@@ -1,0 +1,95 @@
+import java.util.*;
+public class MergeTwoSortedArrays {
+
+	// Input 1st Array  Function
+
+	public static int[] inputArray1() {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int arr1[]= new int [n];
+		for(int i = 0; i<n; i++) {
+			arr1[i] = s.nextInt();
+		}
+		return arr1;
+	}
+
+
+	// Input 2nd Array  Function
+
+	public static int[] inputArray2() {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int arr2[] = new int[n];
+		for(int i =0; i<n; i++) {
+			arr2[i]=s.nextInt();
+		}
+		return arr2;
+	}
+
+	
+	// Print Array Function
+	
+	public static void printArray(int arr[]) {
+		for(int i = 0; i<arr.length; i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+	
+	
+	// Function for merging two sorted Arrays
+	
+
+	public static int[] mergeSort(int arr1[], int arr2[]) {
+		int arr3[] = new int[arr1.length + arr2.length];
+		int i = 0;
+		int k = 0;
+		int j = 0;
+//	for(; k<arr3.length;k++) {
+		
+		
+		while(i<arr1.length && j<arr2.length) {
+			
+				if(arr1[i]<arr2[j]) {
+					arr3[k] = arr1[i];
+					i++;
+					k++;
+				}
+				else{
+					arr3[k] = arr2[j];
+					j++;
+					k++;
+				}
+				
+		
+		}
+		if(i>=arr1.length) {
+			for(;k<arr3.length;k++) {
+				arr3[k]=arr2[j];
+				j++;
+			}
+		}
+		else if(j>=arr2.length) {
+			for(;k<arr3.length;k++) {
+				arr3[k] = arr1[i];
+				i++;
+			}
+		}
+//		}
+		return arr3;
+		
+	}
+
+
+	// Main Function
+	public static void main(String[] args) {
+		int arr1[] = inputArray1();
+		int arr2[] = inputArray2();
+		int arr3[] = mergeSort(arr1,arr2);
+		printArray(arr3);
+		
+
+	}
+
+}
+
+
