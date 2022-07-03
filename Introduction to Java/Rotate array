@@ -1,0 +1,28 @@
+import java.util.*;
+public class ArrayAssignments {
+	
+	public static void rotate(int arr[], int d) {
+        int temp[]=new int[arr.length];   
+        int k=0,m=0;
+        for(int i=d;i<arr.length;i++){
+            temp[k]=arr[i];
+            k++;
+        }
+        for(int j=0;j<d;j++){
+            temp[k]=arr[j];
+            k++;
+        }
+        for(int l=0;l<temp.length;l++)
+        {
+            arr[m]=temp[l];
+            m++;
+        }
+	}
+
+	public static void main(String[] args) {
+		int arr[] = {1,3,6,11,12,17};
+		int d = 4;
+		rotate(arr,d);
+	}
+
+}
