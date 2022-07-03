@@ -1,0 +1,27 @@
+import java.util.*;
+public class SecondLargestInArray {
+	
+	
+	public static  int secondLargestElement(int arr[]) {
+	  	int secLargest = Integer.MIN_VALUE;
+			int largest = Integer.MIN_VALUE;
+	        for(int i=0;i<arr.length;i++){
+	            if(largest<arr[i]){
+	                secLargest = largest;
+	                largest=arr[i];
+	            }
+	            else if((secLargest < arr[i]) && arr[i]!=largest  ){
+	                secLargest = arr[i];
+	            }
+	        }
+	        return secLargest;
+	        
+	}
+	public static void main(String[] args) {
+		int arr[] = {1,3,6,11,12,17};
+		int d = 4;
+		secondLargestElement(arr);
+
+	}
+
+}
