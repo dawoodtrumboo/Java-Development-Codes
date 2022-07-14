@@ -1,0 +1,46 @@
+import java.util.*;
+public class ReverseEachWord {
+	
+	// reverse function
+	
+	public static String reverse(String str) {
+		String ans ="";
+		int start =0;
+		for(int i=0;i<str.length();i++) { //i=7
+			if(str.charAt(i)==' ' ) {
+				int end = i-1; //6
+				String revWord = "";
+				int temp=end; // 6
+				for(;end>=start;end--) { //start = 4 end =6
+					
+				revWord+=str.charAt(end);
+				
+				}
+				// cba
+				start =temp+2; //8
+				ans+=revWord+" ";
+				}
+			else if(i==str.length()-1) {
+				int end = i; //6
+				String revWord = "";
+				int temp=end; // 6
+				for(;end>=start;end--) { //start = 4 end =6
+					
+				revWord+=str.charAt(end);
+			}
+				start =temp+2; //8
+				ans+=revWord+" ";
+			}
+		
+		}
+		return ans;
+		}
+	
+
+	public static void main(String[] args) {
+		String str = "abc def ghi";
+		String str2 = reverse(str);
+		System.out.println(str2);
+	}
+
+}
