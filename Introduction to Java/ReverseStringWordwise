@@ -1,0 +1,46 @@
+import java.util.*;
+public class ReverseStringWordwise {
+
+	// reverse function
+	
+	public static String reverse(String str) {
+		int i;
+		int temp=0;
+		int start =0;
+		String ans ="";
+		
+		
+		for(i=0;i<str.length();i++) {//7,10
+			
+			if(str.charAt(i)==' ') {
+				String reverse = "";
+				temp=i+1;
+				reverse = str.substring(start,i);
+				reverse+=" ";
+				start = temp;
+				ans = reverse+ans;
+
+			}
+			else if(i==str.length()-1) {
+				String reverse = "";
+				temp=i+1;
+				reverse = str.substring(start,i+1);
+				reverse+=" ";
+				start = temp;
+				ans = reverse + ans;
+			}
+			
+			
+			
+			
+		}
+		return ans;
+	}
+	
+	public static void main(String[] args) {
+		String str = "Welcome to Coding Ninjas";
+		String str1= reverse(str);
+		System.out.println(str1);
+	}
+
+}
