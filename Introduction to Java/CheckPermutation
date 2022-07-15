@@ -1,0 +1,89 @@
+import java.util.*;
+public class CheckPermutation {
+
+	
+	// Permutation check funtion
+	
+//	public static Boolean check(String str1,String str2) {
+//		int count;
+//		int k=0;
+//		if(str1.length()!=str2.length())
+//			return false;
+//		for(int i = 0;i<str1.length();i++) {
+//			int j=0;
+//			count=0;
+//			
+//			System.out.println(i);
+//			for(;j<str2.length()-1;j++) {
+//				
+//				if(str1.charAt(i)==str2.charAt(j)) {
+//					count++;
+//					k=i+1;
+//					
+//					
+//					}
+////				System.out.print(count);
+//			}
+//			if(count>1) {
+//				
+//				for(;k<str1.length()-1;k++) {
+//					if(str1.charAt(i)==str1.charAt(k)) {
+//						
+//						break;
+//					}
+//
+//				}
+//				if(str1.charAt(i)==str1.charAt(k))
+//					continue;
+//				else 
+//					return false;
+//			}
+////			if(str1.charAt(i)!=str2.charAt(j))
+////				return false;
+//			
+//		}
+//		return true;
+//	}
+	
+	
+public static boolean isPermutation(String str1, String str2) {
+        
+        
+        
+        if(str1.length()!=str2.length())
+            return false;
+        if(str1.length()==1 && str2.length()==1){
+            if(str1.charAt(0)!=str2.charAt(0))
+                return false;
+        }
+        int arr[] = new int[256];
+        
+        for(int i=0;i<str1.length();i++){
+            int val = (int)str1.charAt(i);
+            arr[val]=arr[val]+1; 
+        }
+        
+        for(int i=0;i<str2.length();i++){
+            int val = (int)str2.charAt(i);
+            arr[val]=arr[val]-1;
+        }
+        
+        
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=0)
+                return false;
+        }
+        return true;
+     
+
+	}
+	
+	public static void main(String[] args) {
+		String str1 = "abcdee";
+		String str2 = "abccde";
+		Boolean isTrue = isPermutation(str1,str2);
+		System.out.println(isTrue);
+	
+	}
+
+}
