@@ -1,0 +1,51 @@
+
+public class LargestRoworColumn {
+
+	
+	public static void compare(int mat[][]) {
+	     int largestR= Integer.MIN_VALUE;
+	        int largestC= Integer.MIN_VALUE;
+	        int sum=0;
+	        int numR=0;
+	        int numC=0;
+
+	        if(mat.length<=1)
+	            System.out.println("row "+0+" "+largestR);
+	        else{
+
+	            for(int i=0;i<mat.length;i++) {
+	                sum =0;
+	                for(int j=0;j<mat[0].length;j++) {
+	                    sum+= mat[i][j];
+	                }
+	                if(sum>largestR) {
+	                    largestR=sum;
+	                    numR=i;
+	                }
+	            }
+
+	            for(int j=0;j<mat[0].length;j++) {
+	                sum=0;
+	                for(int i=0;i<mat.length;i++) {
+	                    sum+=mat[i][j];
+	                }
+	                if(sum>largestC) {
+	                    largestC=sum;
+	                    numC=j;
+	                }
+	            }
+
+	            if(largestR>=largestC)
+	                System.out.println("row "+numR+" "+largestR);
+	            else
+	                System.out.println("column "+numC+" "+largestC);
+	        }
+	}
+	
+	public static void main(String[] args) {
+		int arr[][]= {{1,1},{1,1}};
+		compare(arr);
+
+	}
+
+}
