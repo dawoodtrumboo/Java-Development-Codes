@@ -1,0 +1,61 @@
+import java.util.*;
+
+public class StackPushPop {
+    private final List<Integer> intStack;
+
+    public StackPushPop(int stackSize) {
+        intStack = new ArrayList<>(stackSize);
+    }
+
+    public void push(int item) {
+        intStack.add(0, item);
+    }
+
+    public int pop() {
+        if (!intStack.isEmpty()) {
+            int item = intStack.get(0);
+            intStack.remove(0);
+            return item;
+        } else {
+            return -1;
+        }
+    }
+
+    public int peek() {
+        if (!intStack.isEmpty()) {
+            return intStack.get(0);
+        } else {
+            return -1;
+        }
+    }
+
+    public List<Integer> getAllItems() {
+        return intStack;
+    }
+}
+
+
+public class Class1 {
+    public static void main(String[] args) {
+        StackPushPop stackPushPop = new StackPush(5);
+
+        stackPushPop.push(2);
+        stackPushPop.push(3);
+        stackPushPop.push(4);
+        stackPushPop.push(7);
+        stackPushPop.push(1);
+        System.out.println("Topmost Element of the stack: " + stackPushPop.peek());
+        System.out.println("All Stack Items:");
+        
+        for (Integer allItem : stackPushPop.getAllItems()) {
+            System.out.println(allItem);
+        }
+
+        stackPushPop.pop();
+        System.out.println("All Stack Items After popping one item:");
+        
+        for (Integer allItem : stackPushPop.getAllItems()) {
+            System.out.println(allItem);
+        }
+    }
+}
