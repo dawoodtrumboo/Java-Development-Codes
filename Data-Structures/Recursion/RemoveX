@@ -1,0 +1,27 @@
+//Class Remove X
+public static String replaceChar(String s, char a,char b) {
+	 if(s.length()==0) {
+		 return s;
+	 }
+	 
+	 String smallOutput = replaceChar(s.substring(1),a,b);
+	 
+	 if(s.chatAt(0)==a) {
+		 return b+smallOutput;
+	 }
+	 else
+		 return s.charAt(0)+smallOutput;
+	 
+}
+
+// Main Class
+
+import java.util.Scanner;
+
+public class runner {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String input = s.nextLine();
+		System.out.println(solution.removeX(input));
+	}
+}
