@@ -1,0 +1,70 @@
+// Solution Class
+public class Solution {
+	
+	public static void quickSort(int[] input) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * No need to print or return the output.
+		 * Taking input and printing output is handled automatically.
+		 */
+       int si=0;
+		int ei= input.length-1;
+		sort(input,si,ei);	
+	
+}
+    static void swap(int input[],int a,int b) {
+		int temp = input[a];
+		input[a] = input[b];
+	input[b]= temp;
+		
+	}
+	
+	public static int partition(int arr[], int s,int e) {
+		
+		int pivot=arr[e];
+		int i= s-1;
+		for(int j= s; j<e;j++) {
+			if(arr[j]<pivot) {
+				i++;
+				swap(arr,i,j);
+			}
+		}
+		
+		swap(arr,i+1,e);
+		return i+1;
+	}
+
+	public static void sort(int input[],int s,int e) {
+		if(s<e) {
+			int pi = partition(input,s,e);
+			sort(input,s,pi-1);
+			sort(input,pi+1,e);
+		}
+	}
+}
+
+// Main Class
+import java.util.Scanner;
+
+public class Runner {
+	
+	static Scanner s = new Scanner(System.in);
+	
+	public static int[] takeInput(){
+		int size = s.nextInt();
+		int[] input = new int[size];
+		for(int i = 0; i < size; i++){
+			input[i] = s.nextInt();
+		}
+		return input;
+	}
+	
+	public static void main(String[] args) {
+		int[] input = takeInput();
+		Solution.quickSort(input);
+		for(int i = 0; i < input.length; i++) {
+			System.out.print(input[i] + " ");
+		}
+	}
+}
