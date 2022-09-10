@@ -1,0 +1,145 @@
+//Solution Class
+
+public class Solution {	
+
+    public static int tripletSum(int[] arr, int num) {
+        //Your code goes here
+   quickSort(arr);
+        int n = arr.length;
+        
+        int numTriplets = 0;
+        
+        for (int i=0; i<n; i++) {
+            int pairSum = num - arr[i];
+            int numPairs = 0;
+            
+            int start = i + 1;
+            int stop = n - 1;
+             
+             while (start < stop) {
+                if (arr[start] + arr[stop] < pairSum) {
+                    start++;
+                } else if (arr[start] + arr[stop] > pairSum) {
+                    stop--;
+                } else {
+                   if (arr[start] == arr[stop]) {
+                       int totalCount = (stop - start) + 1;
+                       numPairs += (totalCount * (totalCount - 1) / 2);
+                       break;
+                   }
+                    
+                    int tempI = start + 1;
+                    int tempJ = stop - 1;
+                    
+                    while (tempI <= tempJ && arr[start] == arr[tempI]) {
+                        tempI++;
+                    }
+                    
+                    while (tempI <= tempJ && arr[stop] == arr[tempJ]) {
+                        tempJ--;
+                    }
+                    
+                    int totalElementFromStart = (tempI - start);
+                    int totalElementFromEnd = stop - tempJ;
+                    
+            		numPairs += (totalElementFromStart * totalElementFromEnd);
+                    
+                    start = tempI;
+                    stop = tempJ;
+                }
+            }
+            numTriplets += numPairs;
+        }
+        return numTriplets;
+    }
+    
+    
+    public static void quickSort(int[] input) {
+		
+       int si=0;
+		int ei= input.length-1;
+		sort(input,si,ei);	
+	
+}
+    static void swap(int input[],int a,int b) {
+		int temp = input[a];
+		input[a] = input[b];
+	input[b]= temp;
+		
+	}
+	
+	public static int partition(int arr[], int s,int e) {
+		
+		int pivot=arr[e];
+		int i= s-1;
+		for(int j= s; j<e;j++) {
+			if(arr[j]<pivot) {
+				i++;
+				swap(arr,i,j);
+			}
+		}
+		
+		swap(arr,i+1,e);
+		return i+1;
+	}
+
+	public static void sort(int input[],int s,int e) {
+		if(s<e) {
+			int pi = partition(input,s,e);
+			sort(input,s,pi-1);
+			sort(input,pi+1,e);
+		}
+	}
+}
+
+
+//MAIN CLASS
+
+  import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Runner {
+
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    
+    public static int[] takeInput() throws IOException {
+        int size = Integer.parseInt(br.readLine().trim());
+        int[] input = new int[size];
+
+        if (size == 0) {
+            return input;
+        }
+        
+        String[] strNums; 
+        strNums = br.readLine().split("\\s");
+        
+
+        for (int i = 0; i < size; ++i) {
+            input[i] = Integer.parseInt(strNums[i]);
+        }
+
+        return input;
+    }
+
+    public static void printArray(int[] arr) {
+        for (int element : arr) {
+            System.out.print(element + " ");
+        }
+
+        System.out.println();
+    }
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        int t = Integer.parseInt(br.readLine().trim());
+
+        while(t > 0) {
+
+            int[] arr = takeInput();
+            int num = Integer.parseInt(br.readLine().trim());
+            System.out.println(Solution.tripletSum(arr, num));
+
+            t -= 1;
+        }
+    }
+}
